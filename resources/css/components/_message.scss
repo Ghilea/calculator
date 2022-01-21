@@ -1,0 +1,37 @@
+#outputMessage {
+    background-image: linear-gradient(to bottom, hsl(var(--g-color)) 0%, hsl(var(--g-color2)) 100%);
+    border-radius: var(--br);
+    box-shadow: var(--b-shadow);
+    color: hsl(var(--color));
+    font-weight: var(--fw-m);
+    text-align: justify;
+    font-size: var(--fs-s);
+    height: 2em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 14em;
+    width: 100%;
+    margin: 0 0 0 -0.6em;
+    padding: 0 10px;
+
+    p {
+        padding: 1em;
+        margin: 0;
+
+        span {
+            font-size: var(--fs-b);
+            ;
+            margin: 0 1em 0 0;
+            padding: 0.2em;
+        }
+
+        &:nth-child(odd) {
+            --bg-color: 0 0% 20%;
+            background-color: hsl(var(--bg-color));
+        }
+
+        &:nth-child(even) {
+            background-color: hsl(var(--bg-color));
+        }
+    }
+}

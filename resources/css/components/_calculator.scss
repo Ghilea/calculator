@@ -1,0 +1,96 @@
+#calculator {
+    max-width: 12em;
+    width: 100%;
+    flex-direction: column;
+    padding: 1.5em 2em;
+    background: linear-gradient(hsl(var(--g-color)), hsl(var(--g-color2)));
+    border-radius: var(--br);
+    box-shadow: var(--b-shadow);
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    color: hsl(var(--color));
+    border: none;
+
+    .top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 0.5em;
+
+        .screen {
+            height: 2.8em;
+            max-width: 9em;
+            width: 100%;
+            padding: 0 10px;
+            --bg-color: 0 0% 0%;
+            background-color: hsl(var(--bg-color) / .2);
+            border-radius: 3px;
+            box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+            font-size: var(--fs-s);
+            color: var(--color);
+        }
+
+        .clear {
+            --bg-color: 0 50% 50%;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 3em;
+            height: 3em;
+            background-color: hsl(var(--bg-color));
+            border-radius: var(--br);
+            box-shadow: var(--b-shadow);
+            color: var(--color);
+            transition: all 0.2s ease;
+
+            &:hover {
+                --bg-color: 0 50% 35%;
+            }
+        }
+    }
+
+    .keys {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 14em;
+
+        input {
+            &:nth-child(1n+1){
+                display: flex;
+                cursor: pointer;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 3em;
+                height: 3em;
+                background-color: hsl(var(--bg-color));
+                border-radius: var(--br);
+                box-shadow: var(--b-shadow);
+                margin: 0 7px 11px 0;
+                color: var(--color);
+                transition: all 0.2s ease;
+            }
+        }
+
+        .operator,
+        .eval {
+            --bg-color: 0 0% 43%;
+
+            &:hover {
+                --bg-color: 0 0% 23%;
+            }
+        }
+
+        .btn:hover {
+            --bg-color: 0 0% 50%;
+        }
+
+
+    }
+}
