@@ -197,7 +197,7 @@ form {
 }
 #calculator .top .screen {
   height: 2.8em;
-  max-width: 9em;
+  max-width: 10em;
   width: 100%;
   padding: 0 10px;
   --bg-color: 0 0% 0%;
@@ -230,6 +230,7 @@ form {
   align-items: center;
   justify-content: space-evenly;
   width: 14em;
+  margin: 0 0 0 0.6em;
 }
 #calculator .keys input:nth-child(1n+1) {
   display: flex;
@@ -272,6 +273,7 @@ form {
   width: 100%;
   margin: 0 0 0 -0.6em;
   padding: 0 10px;
+  line-height: 2em;
 }
 #outputMessage p {
   padding: 1em;
