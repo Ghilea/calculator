@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding: 5em;
+    transform: translateY(50%);
 
     p {
         color: hsl(var(--color))
@@ -21,6 +21,15 @@ body {
 
 h1 {
     color: hsl(var(--color))
+}
+
+.flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        gap:1em;
 }
 
 form {

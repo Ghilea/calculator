@@ -24,10 +24,10 @@
 
         <div class="container">
             <header>
-               <h1>Miniräknaren</h1>
+               <h1>Miniräknare</h1>
             </header>
 
-            <article>
+            <article class="flex">
                 <section>
                     <form>
                         <fieldset id="calculator">
@@ -57,18 +57,17 @@
                         </fieldset>
 
                     </form>
-                </section>                 
+                </section>      
+                <div id="outputMessage">Historik</div>
             </article>
-
-           
-    
         </div>
 
+        
         <div id="error"></div>
 
     </main>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./resources/js/app.js"></script>
+    <script type="module" src="./resources/js/app.js"></script>
 </body>
 </html>

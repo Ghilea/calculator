@@ -6,22 +6,23 @@
     font-weight: var(--fw-m);
     text-align: justify;
     font-size: var(--fs-s);
-    height: 2em;
+    min-height: 2em;
+    height: 15em;
     overflow-x: hidden;
     overflow-y: auto;
-    max-width: 14em;
-    width: 100%;
+    width: 20em;
     margin: 0 0 0 -0.6em;
     padding: 0 10px;
     line-height: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 
     p {
-        padding: 1em;
         margin: 0;
 
         span {
             font-size: var(--fs-b);
-            ;
             margin: 0 1em 0 0;
             padding: 0.2em;
         }

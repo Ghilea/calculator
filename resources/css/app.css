@@ -31,7 +31,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 5em;
+  transform: translateY(50%);
 }
 .container p {
   color: hsl(var(--color));
@@ -39,6 +39,15 @@ body {
 
 h1 {
   color: hsl(var(--color));
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  gap: 1em;
 }
 
 form {
@@ -266,17 +275,19 @@ form {
   font-weight: var(--fw-m);
   text-align: justify;
   font-size: var(--fs-s);
-  height: 2em;
+  min-height: 2em;
+  height: 15em;
   overflow-x: hidden;
   overflow-y: auto;
-  max-width: 14em;
-  width: 100%;
+  width: 20em;
   margin: 0 0 0 -0.6em;
   padding: 0 10px;
   line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 #outputMessage p {
-  padding: 1em;
   margin: 0;
 }
 #outputMessage p span {

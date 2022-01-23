@@ -1,234 +1,124 @@
+import Btn from './class/class_btn.js';
+
 $(function () {
 
-    let calcArray = [];
-    let number;
-    let operator = '+';
+    let btn = new Btn();
 
-    let sc = $('.screen');
-    //screen
+    //keys
     $(document).keypress(function (event) {
 
         let keys = event.originalEvent.keyCode;
 
         switch (keys) {
             case 13:
-                calculate();
+                btn.calculate();
                 event.preventDefault();
                 break;
             case 99:
-                clear()
+                btn.clear()
                 event.preventDefault();
                 break;
             case 42:
-                multiplication();
+                btn.calcBtn('*');
                 event.preventDefault();
                 break;
             case 43:
-                addition();
+                btn.calcBtn('+');
                 event.preventDefault();
                 break;
             case 45:
-                subrtraction();
+                btn.calcBtn('-');
+                event.preventDefault();
+                break;
+            case 46:
+                btn.calcBtn('.');
                 event.preventDefault();
                 break;
             case 47:
-                division();
+                btn.calcBtn('/');
                 event.preventDefault();
                 break;
             case 48:
-                numbers(0);
+                btn.calcBtn(0);
                 event.preventDefault();
                 break;
             case 49:
-                numbers(1);
+                btn.calcBtn(1);
                 event.preventDefault();
                 break;
             case 50:
-                numbers(2);
+                btn.calcBtn(2);
                 event.preventDefault();
                 break;
             case 51:
-                numbers(3);
+                btn.calcBtn(3);
                 event.preventDefault();
                 break;
             case 52:
-                numbers(4);
+                btn.calcBtn(4);
                 event.preventDefault();
                 break;
             case 53:
-                numbers(5);
+                btn.calcBtn(5);
                 event.preventDefault();
                 break;
             case 54:
-                numbers(6);
+                btn.calcBtn(6);
                 event.preventDefault();
                 break;
             case 55:
-                numbers(7);
+                btn.calcBtn(7);
                 event.preventDefault();
                 break;
             case 56:
-                numbers(8);
+                btn.calcBtn(8);
                 event.preventDefault();
                 break;
-
             case 57:
-                numbers(9);
+                btn.calcBtn(9);
                 event.preventDefault();
                 break;
 
         }
     });
 
-    //addition
-    $('#btn0').click(function () {
-        numbers(0);
+    //click buttons
+    let arrayButtons = [
+        '#btn0', '#btn1', '#btn2', '#btn3', '#btn4',
+        '#btn5', '#btn6', '#btn7', '#btn8', '#btn9'
+    ]
+
+    $.each(arrayButtons, (index, element) => {
+        $(element).click(function () {
+            btn.calcBtn(index);
+        });
     });
 
-    $('#btn1').click(function () {
-        numbers(1);
-    });
+    let arrayOperator = [
+        ['#btnAdd', '+'],
+        ['#btnSub', '-'],
+        ['#btnMul', '*'],
+        ['#btnDiv', '/'],
+        ['#btnDot', '.'],
+    ]
 
-    $('#btn2').click(function () {
-        numbers(2);
-    });
-
-    $('#btn3').click(function () {
-        numbers(3);
-    });
-
-    $('#btn4').click(function () {
-        numbers(4);
-    });
-
-    $('#btn5').click(function () {
-        numbers(5);
-    });
-
-    $('#btn6').click(function () {
-
-        numbers(6);
-    });
-
-    $('#btn7').click(function () {
-
-        numbers(7);
-    });
-
-    $('#btn8').click(function () {
-
-        numbers(8);
-    });
-
-    $('#btn9').click(function () {
-
-        numbers(9);
-    });
-
-    //addition
-    $('#btnAdd').click(function () {
-        addition();
-    });
-
-    //subrtraction
-    $('#btnSub').click(function () {
-        subrtraction();
-    });
-
-    //multiplication
-    $('#btnMul').click(function () {
-        multiplication();
-    });
-
-    //division
-    $('#btnDiv').click(function () {
-        division();
+    $.each(arrayOperator, (index, keys) => {
+        $(keys[0]).click(function () {
+            btn.calcBtn(keys[1]);
+        });
     });
 
     //calculate
     $('#eval').click(function () {
-        calculate();
+        let result = btn.calculate();
+
+        let screen = $('.screen');
+        screen.val(result);
     });
 
     //clear
     $('.clear').click(function () {
-        clear();
+        btn.clear();
     });
-
-    //functions
-    function addition() {
-        calcArray.push(parseInt(number));
-        console.log(calcArray);
-        number = '';
-        sc.val(sc.val() + '+');
-    }
-
-    function subrtraction() {
-        calcArray.push(parseInt(number));
-        console.log(calcArray);
-        number = '';
-        sc.val(sc.val() + '-');
-    }
-
-    function multiplication() {
-        calcArray.push(parseInt(number));
-        console.log(calcArray);
-        number = '';
-        sc.val(sc.val() + '*');
-    }
-
-    function division() {
-        calcArray.push(parseInt(number));
-        console.log(calcArray);
-        number = '';
-        sc.val(sc.val() + '/');
-    }
-
-    function calculate() {
-        let result = convMath(operator);
-        console.log('resultat: ' + result);
-    }
-
-    function clear() {
-        console.log('clear');
-        calcValue = [];
-        number = '';
-        sc.val('');
-    }
-
-    function convMath(operator) {
-        calcArray.push(parseInt(number));
-        console.log(calcArray);
-        number = '';
-
-        switch (operator) {
-            case '+':
-                let total;
-
-                $.each(calcArray, function (index, value) {
-                    console.log(value);
-                    if (index <= 0) {
-                        total = value;
-                    } else {
-                        total += value;
-                    }
-
-                });
-
-                return total;
-                break;
-        }
-    }
-
-    function numbers(value) {
-        if (number === null || number === '' || number === undefined) {
-            number = toString(value);
-        } else {
-            number += toString(value);
-        }
-
-        console.log(number);
-        sc.val(sc.val() + value);
-    }
 
 });
