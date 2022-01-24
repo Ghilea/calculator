@@ -7,15 +7,20 @@ export default class Btn extends Math {
 
     calcBtn(value) {
         let screen = $('.screen');
+        screen.focus();
         screen.val(screen.val() + value);
+        
     }
 
     calculate() {
         let screen = $('.screen');
 
-        this.input(screen);
+        //checking input field
+        if(this.input(screen.val())){
+            return;
+        }
 
-        let output = $('#outputMessage h2:first-child').after('<p>' + screen.val() + '</p>');
+        $('#outputMessage h2:first-child').after('<p>' + screen.val() + '</p>');
 
         return this.convMath(screen.val());
     }
