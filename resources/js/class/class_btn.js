@@ -20,9 +20,11 @@ export default class Btn extends Math {
             return;
         }
 
-        $('#outputMessage h2:first-child').after('<p>' + screen.val() + '</p>');
+        let result = this.convMath(screen.val());
 
-        return this.convMath(screen.val());
+        $('#outputMessage h2:first-child').after('<p>' + screen.val() + '=' + result + '</p>');
+
+        return result;
     }
 
     clear() {

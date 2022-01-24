@@ -73,9 +73,15 @@ export default class Math extends Check {
             }
         });
 
-        console.log('totalt :' + total.toFixed(2));
+        let result;
 
-        return total.toFixed(2);
+        if (Number.isInteger(total)) {
+            result = total;
+        }else{
+            result = total.toFixed(2);
+        }
+
+        return result;
 
     };
 
