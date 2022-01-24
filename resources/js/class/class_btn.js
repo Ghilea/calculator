@@ -15,8 +15,7 @@ export default class Btn extends Math {
 
         this.input(screen);
 
-        let output = $('#outputMessage');
-        output.append('<p>' + screen.val() + '</p>')
+        let output = $('#outputMessage h2:first-child').after('<p>' + screen.val() + '</p>');
 
         return this.convMath(screen.val());
     }

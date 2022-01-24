@@ -7,7 +7,7 @@ export default class Math extends Check {
 
     convMath(operation) {
 
-        let split = operation.split(/([0-9]+)/).filter(Boolean);
+        let split = operation.split(/(\+)|(\*)|(\/)|(\-)/g).filter(Boolean);
 
         console.log(split);
 
@@ -27,19 +27,19 @@ export default class Math extends Check {
 
                     switch (doMath[1]) {
                         case '+':
-                            total = this.sum(parseInt(doMath[0]), parseInt(doMath[2]))
+                            total = this.sum(parseFloat(doMath[0]), parseFloat(doMath[2]))
                             console.log('first :' + total);
                             break;
                         case '-':
-                            total = this.sub(parseInt(doMath[0]), parseInt(doMath[2]))
+                            total = this.sub(parseFloat(doMath[0]), parseFloat(doMath[2]))
                             console.log('first :' + total);
                             break;
                         case '*':
-                            total = this.mul(parseInt(doMath[0]), parseInt(doMath[2]))
+                            total = this.mul(parseFloat(doMath[0]), parseFloat(doMath[2]))
                             console.log('first :' + total);
                             break;
                         case '/':
-                            total = this.div(parseInt(doMath[0]), parseInt(doMath[2]))
+                            total = this.div(parseFloat(doMath[0]), parseFloat(doMath[2]))
                             console.log('first :' + total);
                             break;
                     }
@@ -73,9 +73,9 @@ export default class Math extends Check {
             }
         });
 
-        console.log('totalt :' + total);
+        console.log('totalt :' + total.toFixed(2));
 
-        return total;
+        return total.toFixed(2);
 
     };
 
