@@ -14,95 +14,110 @@ $(function () {
     let btn = new Btn(false);
  
     //keys
-    $(document).keypress(function (event) {
+    $(document).keydown(function (event) {
 
-        let keys = event.originalEvent.keyCode;
+        let key = event.keyCode;
 
-        switch (keys) {
+        switch (key) {
             case 13:
+                event.preventDefault();
+                if (btn.reset) {
+                    return;
+                }
                 btn.calculate();
                 btn.reset = true;
-                event.preventDefault();
                 break;
             case 99:
-                btn.clear();
                 event.preventDefault();
+                btn.clear();
                 break;
             case 42:
+                event.preventDefault();
                 btn.resetIt('*');
                 btn.calcBtn('*');
-                event.preventDefault();
                 break;
             case 43:
+                event.preventDefault();
                 btn.resetIt('+');
                 btn.calcBtn('+');
-                event.preventDefault();
                 break;
             case 45:
+                event.preventDefault();
                 btn.resetIt('-');
                 btn.calcBtn('-');
-                event.preventDefault();
                 break;
             case 46:
+                event.preventDefault();
                 btn.resetIt('.');
                 btn.calcBtn('.');
-                event.preventDefault();
                 break;
             case 47:
+                event.preventDefault();
                 btn.resetIt('/');
                 btn.calcBtn('/');
-                event.preventDefault();
                 break;
             case 48:
-                btn.calcBtn(0);
-                btn.resetIt(0);
                 event.preventDefault();
+                btn.resetIt(0);
+                btn.calcBtn(0);
                 break;
             case 49:
-                btn.calcBtn(1);
-                btn.resetIt(1);
                 event.preventDefault();
+                btn.resetIt(1);
+                btn.calcBtn(1);
                 break;
             case 50:
-                btn.calcBtn(2);
-                btn.resetIt(2);
                 event.preventDefault();
+                btn.resetIt(2);
+                btn.calcBtn(2);
                 break;
             case 51:
-                btn.calcBtn(3);
-                btn.resetIt(3);
                 event.preventDefault();
+                btn.resetIt(3);
+                btn.calcBtn(3);
                 break;
             case 52:
-                btn.calcBtn(4);
-                btn.resetIt(4);
                 event.preventDefault();
+                btn.resetIt(4);
+                btn.calcBtn(4);
                 break;
             case 53:
-                btn.calcBtn(5);
-                btn.resetIt(5);
                 event.preventDefault();
+                btn.resetIt(5);
+                btn.calcBtn(5);
                 break;
             case 54:
-                btn.calcBtn(6);
-                btn.resetIt(6);
                 event.preventDefault();
+                btn.resetIt(6);
+                btn.calcBtn(6);
                 break;
             case 55:
-                btn.calcBtn(7);
-                btn.resetIt(7);
                 event.preventDefault();
+                btn.resetIt(7);
+                btn.calcBtn(7);
                 break;
             case 56:
-                btn.calcBtn(8);
-                btn.resetIt(8);
                 event.preventDefault();
+                btn.resetIt(8);
+                btn.calcBtn(8);
                 break;
             case 57:
-                btn.calcBtn(9);
-                btn.resetIt(9);
                 event.preventDefault();
+                btn.resetIt(9);
+                btn.calcBtn(9);
                 break;
+            default:
+            return (
+                key == 8 || 
+                key == 9 ||
+                key == 13 ||
+                key == 46 ||
+                key == 110 ||
+                key == 190 ||
+                (key >= 35 && key <= 40) ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+            break;
 
         }
     });
@@ -147,7 +162,7 @@ $(function () {
     });
 
     //clear
-    $('.clear').click( () => {
+    $('.clear').click(() => {
         btn.clear();
     });
 

@@ -2,19 +2,20 @@ export default class Check{
     constructor(){}
 
     input(checking){
-
-        //regex
         //starts with mul or div?
-        const bRegex = new RegExp("^[*/]"); 
+        const bRegex = new RegExp('^[\*\/]'); 
         
         //end with any of the operators?
-        const eRegex = new RegExp("([*+-/])$"); 
+        const eRegex = new RegExp('([\*\+\-\/])$'); 
 
         //operators are next to each other?
-        const nToRegex = new RegExp("([-][*/+-])|([+][*/+-])|([*][*/+])|([/][*/+])", "g"); 
+        const nToRegex = new RegExp('([\-][\*\/\+\-])|([\+][\*\/\+\-])|([\*][\*\/\+])|([\/][\*\/\+])', 'g');
+
+        //dont have any operators?
+        const noOpRegex = new RegExp('[\+|\*|\/|\-]');
 
         try {
-            if (checking.length <= 0) {
+            if ((checking.length < 0) || (checking == '') || (!noOpRegex.test(checking))) {
                 throw 'Om grisar kunde flyga, ge mig något att räkna ut.';
             }
 
@@ -27,21 +28,16 @@ export default class Check{
             }
 
             if (nToRegex.test(checking)) {
-                throw 'Ogiltigt räknesätt bredvid varandra.';
+                throw 'Räknesätt kan inte vara bredvid varandra.';
             }
 
             /*TODO
-            
             * sub and add need also to be checked with other conditions than mul and div
-            * need to add pattern so users can´t eval with only a digits in place
-            * need a pattern so users cant write letters
             */
         }
         catch (error) {
             console.log(error);
             return error;
         }
-
     }
-    
 }

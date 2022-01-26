@@ -8,14 +8,18 @@ export default class Math extends Check {
     }
 
     convMath(operation) {
-
         const split = operation.split(/(\+)|(\*)|(\/)|(\-)/g).filter(Boolean);
+
         console.log(split);
 
         $.each(split, index => {
 
             if (index < 3) {
                 if (index % 3) {
+
+                    if(split[0] == '-'){
+                        console.log('test');
+                    }
 
                     let doMath = split.slice(0, 3);
                     console.log('first: ' + doMath);
@@ -28,7 +32,7 @@ export default class Math extends Check {
 
                     let doMath = split.slice(index, index + 2);
 
-                    this.ev(doMath[0], parseInt(this.total), parseInt(doMath[1]))
+                    this.ev(doMath[0], parseFloat(this.total), parseFloat(doMath[1]))
                     console.log('else :' + this.total);
                         
                 }
