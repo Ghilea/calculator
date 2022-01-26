@@ -1,8 +1,9 @@
 import Math from './class_math.js'
 
 export default class Btn extends Math {
-    constructor() {
+    constructor(reset) {
         super();
+        this.reset = reset;
     }
 
     calcBtn(value) {
@@ -30,5 +31,14 @@ export default class Btn extends Math {
     clear() {
         let screen = $('.screen');
         screen.val('');
+    }
+
+    resetIt(btn) {
+        if (this.reset) {
+            if(typeof btn == 'number'){
+                this.clear();
+            }
+            this.reset = false;
+        }
     }
 }

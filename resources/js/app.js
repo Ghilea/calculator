@@ -2,9 +2,17 @@ import Btn from './class/class_btn.js';
 
 $(function () {
 
-    let btn = new Btn();
-    let reset = false;
+    //add bubbles
+    $('<div>', {
+        class: 'bubbles',
+    }).appendTo('main');
 
+    for (let index = 0; index < 10; index++) {
+        $('<span>').appendTo('.bubbles');
+    }
+
+    let btn = new Btn(false);
+ 
     //keys
     $(document).keypress(function (event) {
 
@@ -13,7 +21,7 @@ $(function () {
         switch (keys) {
             case 13:
                 btn.calculate();
-                reset = true;
+                btn.reset = true;
                 event.preventDefault();
                 break;
             case 99:
@@ -21,78 +29,78 @@ $(function () {
                 event.preventDefault();
                 break;
             case 42:
-                resetItOperator();
+                btn.resetIt('*');
                 btn.calcBtn('*');
                 event.preventDefault();
                 break;
             case 43:
-                resetItOperator();
+                btn.resetIt('+');
                 btn.calcBtn('+');
                 event.preventDefault();
                 break;
             case 45:
-                resetItOperator();
+                btn.resetIt('-');
                 btn.calcBtn('-');
                 event.preventDefault();
                 break;
             case 46:
-                resetItOperator();
+                btn.resetIt('.');
                 btn.calcBtn('.');
                 event.preventDefault();
                 break;
             case 47:
-                resetItOperator();
+                btn.resetIt('/');
                 btn.calcBtn('/');
                 event.preventDefault();
                 break;
             case 48:
                 btn.calcBtn(0);
-                resetIt();
+                btn.resetIt(0);
                 event.preventDefault();
                 break;
             case 49:
                 btn.calcBtn(1);
-                resetIt();
+                btn.resetIt(1);
                 event.preventDefault();
                 break;
             case 50:
                 btn.calcBtn(2);
-                resetIt();
+                btn.resetIt(2);
                 event.preventDefault();
                 break;
             case 51:
                 btn.calcBtn(3);
-                resetIt();
+                btn.resetIt(3);
                 event.preventDefault();
                 break;
             case 52:
                 btn.calcBtn(4);
-                resetIt();
+                btn.resetIt(4);
                 event.preventDefault();
                 break;
             case 53:
                 btn.calcBtn(5);
-                resetIt();
+                btn.resetIt(5);
                 event.preventDefault();
                 break;
             case 54:
                 btn.calcBtn(6);
-                resetIt();
+                btn.resetIt(6);
                 event.preventDefault();
                 break;
             case 55:
                 btn.calcBtn(7);
-                resetIt();
+                btn.resetIt(7);
                 event.preventDefault();
                 break;
             case 56:
                 btn.calcBtn(8);
-                resetIt();
+                btn.resetIt(8);
                 event.preventDefault();
                 break;
             case 57:
                 btn.calcBtn(9);
-                resetIt();
+                btn.resetIt(9);
                 event.preventDefault();
                 break;
 
@@ -100,36 +108,34 @@ $(function () {
     });
 
     //click buttons
-    let arrayButtons = [
-        '#btn0', '#btn1', '#btn2', '#btn3', '#btn4',
-        '#btn5', '#btn6', '#btn7', '#btn8', '#btn9'
-    ]
-
-    $.each(arrayButtons, (index, element) => {
-        $(element).click(function () {
-            resetIt();
-            btn.calcBtn(index);
-        });
-    });
-
-    let arrayOperator = [
+    const arrayButtons = [
+        ['#btn0', 0], 
+        ['#btn1', 1], 
+        ['#btn2', 2], 
+        ['#btn3', 3], 
+        ['#btn4', 4],
+        ['#btn5', 5], 
+        ['#btn6', 6], 
+        ['#btn7', 7], 
+        ['#btn8', 8], 
+        ['#btn9', 9],
         ['#btnAdd', '+'],
         ['#btnSub', '-'],
         ['#btnMul', '*'],
         ['#btnDiv', '/'],
-        ['#btnDot', '.'],
-    ]
+        ['#btnDot', '.']
+    ];
 
-    $.each(arrayOperator, (index, keys) => {
-        $(keys[0]).click(function () {
-            resetItOperator();
+    $.each(arrayButtons, (index, keys) => {
+        $(keys[0]).click( () => {
+            btn.resetIt(keys[1]);
             btn.calcBtn(keys[1]);
         });
     });
 
     //calculate
-    $('#eval').click(function () {
-        if (reset) {
+    $('#eval').click(() => {
+        if (btn.reset) {
             return;
         }
 
@@ -137,25 +143,12 @@ $(function () {
 
         let screen = $('.screen');
         screen.val(result);
-        reset = true;
+        btn.reset = true;
     });
 
     //clear
-    $('.clear').click(function () {
+    $('.clear').click( () => {
         btn.clear();
     });
-
-    function resetIt() {
-        if (reset) {
-            btn.clear();
-            reset = false;
-        }
-    }
-
-    function resetItOperator() {
-        if (reset) {
-            reset = false;
-        }
-    }
 
 });
