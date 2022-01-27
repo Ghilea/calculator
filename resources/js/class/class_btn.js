@@ -1,40 +1,48 @@
 import Math from './class_math.js'
 
 export default class Btn extends Math {
-    constructor(reset) {
+    constructor() {
         super();
-        this.reset = reset;
+        this.reset = false;
+        this.screen = $('.screen');
     }
 
     calcBtn(value) {
-        let screen = $('.screen');
-        screen.focus();
-        screen.val(screen.val() + value);
+        this.screen.focus();
+        this.screen.val(this.screen.val() + value);
     }
 
     calculate() {
-        let screen = $('.screen');
-        screen.focus();
-        //checking input field
-        if(this.input(screen.val())){
+        if (this.reset) {
             return;
         }
 
-        let result = this.convMath(screen.val());
+        this.screen.focus();
+        //checking input field
+        if(this.input(this.screen.val())){
+            return;
+        }
 
-        $('#outputMessage').html('<p>' + screen.val() + '=' + result + '</p>');
+        let result = this.convMath(this.screen.val());
+
+        $('#outputMessage').html('<p>' + this.screen.val() + '=' + result + '</p>');
+
+        this.screen.val(result);
+        this.reset = true;
 
         return result;
     }
 
     clear() {
-        let screen = $('.screen');
-        screen.val('');
+        this.screen.val('');
     }
 
+    //todo reset not working
     resetIt(btn) {
+        const num = '123456789';
         if (this.reset) {
-            if(typeof btn == 'number'){
+            console.log(btn.indexOf(num))
+            if(btn.indexOf(num) != -1){
                 this.clear();
             }
             this.reset = false;

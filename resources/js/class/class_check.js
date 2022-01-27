@@ -45,7 +45,6 @@ export default class Check{
                 elm.fadeOut();
             }, 1500);
 
-            console.log(error);
             return error;
         }
     }
