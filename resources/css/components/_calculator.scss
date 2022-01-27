@@ -2,7 +2,7 @@
     max-width: 12em;
     width: 100%;
     flex-direction: column;
-    padding: 1.5em 2em;
+    padding: 1.5em 0.5em 1em 0.5em;
     background: linear-gradient(hsl(var(--g-color)), hsl(var(--g-color2)));
     border-radius: var(--br);
     box-shadow: var(--b-shadow);
@@ -19,19 +19,22 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-evenly;
-        gap: 0.5em;
+        gap: 1em;
+        position: relative;
 
         .screen {
+            transform: translateZ(5em);
             height: 2.8em;
             max-width: 10em;
             width: 100%;
-            padding: 0 10px;
+            padding: 0 1em;
             --bg-color: 0 0% 0%;
             background-color: hsl(var(--bg-color) / .2);
             border-radius: 3px;
             box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
             font-size: var(--fs-s);
             color: var(--color);
+            padding:  0 0.5em 1em 0.5em; 
         }
 
         .clear {
@@ -41,7 +44,7 @@
             align-items: center;
             justify-content: space-evenly;
             width: 3em;
-            height: 3em;
+            height: 4em;
             background-color: hsl(var(--bg-color));
             border-radius: var(--br);
             box-shadow: var(--b-shadow);
@@ -50,6 +53,45 @@
 
             &:hover {
                 --bg-color: 0 50% 35%;
+            }
+        }
+
+        #outputMessage {
+            color: hsl(var(--color));
+            font-weight: var(--fw-m);
+            font-size: var(--fs-s);
+            height: 1.3em;
+            text-align: right;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 10em;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(calc(-50% + 2.1em)) translateY(calc(-50% + 1em));
+        
+            h2 {
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+        
+            p {
+                margin: 0;
+        
+                span {
+                    font-size: var(--fs-b);
+                    margin: 0 1em 0 0;
+                    padding: 0.2em;
+                }
+        
+                &:nth-child(odd) {
+                    --bg-color: 0 0% 20%;
+                    background-color: hsl(var(--bg-color));
+                }
+        
+                &:nth-child(even) {
+                    background-color: hsl(var(--bg-color));
+                }
             }
         }
     }

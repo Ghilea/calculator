@@ -22,7 +22,7 @@ export default class Btn extends Math {
 
         let result = this.convMath(screen.val());
 
-        $('#outputMessage h2:first-child').after('<p>' + screen.val() + '=' + result + '</p>');
+        $('#outputMessage').html('<p>' + screen.val() + '=' + result + '</p>');
 
         return result;
     }

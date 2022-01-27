@@ -25,7 +25,11 @@ $(function () {
                 if (btn.reset) {
                     return;
                 }
-                btn.calculate();
+        
+                let result = btn.calculate();
+        
+                let screen = $('.screen');
+                screen.val(result);
                 btn.reset = true;
                 break;
             case 67:
