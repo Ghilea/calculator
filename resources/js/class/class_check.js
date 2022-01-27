@@ -16,7 +16,7 @@ export default class Check{
 
         try {
             if ((checking.length < 0) || (checking == '') || (!noOpRegex.test(checking))) {
-                throw 'Om grisar kunde flyga, ge mig något att räkna ut.';
+                throw 'Om grisar kunde flyga... Ge mig något att räkna.';
             }
 
             if (bRegex.test(checking)) {
@@ -36,6 +36,15 @@ export default class Check{
             */
         }
         catch (error) {
+            let elm = $('#error');
+
+            elm.css('display', 'flex');
+            elm.html('<p>' + error + '</p>');
+            
+            setTimeout(function() { 
+                elm.fadeOut();
+            }, 1500);
+
             console.log(error);
             return error;
         }

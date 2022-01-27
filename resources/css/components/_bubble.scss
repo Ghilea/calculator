@@ -8,7 +8,7 @@
     z-index: -1;
 
     span {
-        animation: bubbles random(15)+10s ease-in-out infinite;
+        animation: bubbles random(10)+15s ease-in-out infinite;
         transform-style: preserve-3d;
         box-shadow: var(--b-shadow);
         position: absolute;
@@ -42,7 +42,7 @@
 
         @keyframes bubbles {
             to {
-                transform: translateY(1000px) rotateZ(360deg) rotateX(360deg) rotateY(360deg);
+                transform: translateY(100vh+30vh) rotateZ(360deg) rotateX(360deg) rotateY(360deg);
                 opacity: 0;
             }
         

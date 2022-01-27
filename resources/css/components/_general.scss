@@ -32,7 +32,7 @@ main {
         color: hsl(var(--color))
     }
 
-    .flex {
+    article {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -45,5 +45,25 @@ main {
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+}
+
+#error {
+    background: linear-gradient(hsl(var(--g-color)), hsl(var(--g-color2)));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 5em;
+    padding: 1em;
+    width: 15em;
+    border-radius: 0.3em;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 7px 1px whitesmoke;
+
+    p {
+        color: white;
     }
 }
