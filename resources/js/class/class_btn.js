@@ -10,12 +10,11 @@ export default class Btn extends Math {
         let screen = $('.screen');
         screen.focus();
         screen.val(screen.val() + value);
-        
     }
 
     calculate() {
         let screen = $('.screen');
-
+        screen.focus();
         //checking input field
         if(this.input(screen.val())){
             return;

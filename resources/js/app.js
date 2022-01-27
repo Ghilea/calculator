@@ -17,9 +17,10 @@ $(function () {
     $(document).keydown(function (event) {
 
         let key = event.keyCode;
-
+        //console.log(key);
         switch (key) {
             case 13:
+                //enter
                 event.preventDefault();
                 if (btn.reset) {
                     return;
@@ -27,26 +28,27 @@ $(function () {
                 btn.calculate();
                 btn.reset = true;
                 break;
-            case 99:
+            case 67:
+                //c
                 event.preventDefault();
                 btn.clear();
                 break;
-            case 42:
+            case 191:
                 event.preventDefault();
                 btn.resetIt('*');
                 btn.calcBtn('*');
                 break;
-            case 43:
+            case 187:
                 event.preventDefault();
                 btn.resetIt('+');
                 btn.calcBtn('+');
                 break;
-            case 45:
+            case 189:
                 event.preventDefault();
                 btn.resetIt('-');
                 btn.calcBtn('-');
                 break;
-            case 46:
+            case 190:
                 event.preventDefault();
                 btn.resetIt('.');
                 btn.calcBtn('.');
