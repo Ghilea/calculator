@@ -1,12 +1,15 @@
-export default class Check{
-    constructor(){}
+export default class Check {
+    constructor() {}
 
-    input(checking){
+    input(checking) {
         //starts with mul or div?
-        const bRegex = new RegExp('^[\*\/]'); 
-        
+        const bRegex = new RegExp('^[\*\/]');
+
+        //starts with mul or div?
+        const bAddRegex = new RegExp('^[\+]');
+
         //end with any of the operators?
-        const eRegex = new RegExp('([\*\+\-\/])$'); 
+        const eRegex = new RegExp('([\*\+\-\/])$');
 
         //operators are next to each other?
         const nToRegex = new RegExp('([\-][\*\/\+\-])|([\+][\*\/\+\-])|([\*][\*\/\+])|([\/][\*\/\+])', 'g');
@@ -23,6 +26,10 @@ export default class Check{
                 throw 'Du kan inte börja med multiplikation eller division.';
             }
 
+            if (bAddRegex.test(checking)) {
+                throw 'Ditt första tal är redan positivt från början.';
+            }
+
             if (eRegex.test(checking)) {
                 throw 'Du kan inte sluta med ett räknesätt.';
             }
@@ -30,18 +37,13 @@ export default class Check{
             if (nToRegex.test(checking)) {
                 throw 'Räknesätt kan inte vara bredvid varandra.';
             }
-
-            /*TODO
-            * sub and add need also to be checked with other conditions than mul and div
-            */
-        }
-        catch (error) {
+        } catch (error) {
             let elm = $('#error');
 
             elm.css('display', 'flex');
             elm.html('<p>' + error + '</p>');
-            
-            setTimeout(function() { 
+
+            setTimeout(function () {
                 elm.fadeOut();
             }, 1500);
 

@@ -19,7 +19,7 @@ export default class Btn extends Math {
 
         this.screen.focus();
         //checking input field
-        if(this.input(this.screen.val())){
+        if (this.input(this.screen.val())) {
             return;
         }
 
@@ -35,14 +35,14 @@ export default class Btn extends Math {
 
     clear() {
         this.screen.val('');
+        $('#outputMessage').html('');
     }
 
-    //todo reset not working
     resetIt(btn) {
-        const num = '123456789';
+
         if (this.reset) {
-            console.log(btn.indexOf(num))
-            if(btn.indexOf(num) != -1){
+            const num = new RegExp('[0-9]');
+            if (num.test(parseInt(btn))) {
                 this.clear();
             }
             this.reset = false;

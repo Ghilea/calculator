@@ -8,7 +8,7 @@ export default class Math extends Check {
     }
 
     convMath(operation) {
-        const split = operation.split(/(\+)|(\*)|(\/)|(\-)/g).filter(Boolean);
+        let split = operation.split(/(\+)|(\*)|(\/)|(\-)/g).filter(Boolean);
 
         console.log(split);
 
@@ -17,8 +17,11 @@ export default class Math extends Check {
             if (index < 3) {
                 if (index % 3) {
 
-                    if(split[0] == '-'){
-                        console.log('test');
+                    //if sub is in the beginning of our array
+                    if (split[0] == '-') {
+                        let subValue = split[0] + split[1];
+                        split.splice(0,2);
+                        split.unshift(subValue);
                     }
 
                     let doMath = split.slice(0, 3);
@@ -34,14 +37,14 @@ export default class Math extends Check {
 
                     this.ev(doMath[0], parseFloat(this.total), parseFloat(doMath[1]))
                     console.log('else :' + this.total);
-                        
+
                 }
             }
         });
 
         if (Number.isInteger(this.total)) {
             this.result = this.total;
-        }else{
+        } else {
             this.result = this.total.toFixed(2);
         }
 
@@ -49,19 +52,19 @@ export default class Math extends Check {
     };
 
     ev(check, a, b) {
-        switch(check){
+        switch (check) {
             case '+':
                 this.total = a + b;
-            break;
+                break;
             case '-':
                 this.total = a - b;
-            break;
+                break;
             case '/':
                 this.total = a / b;
-            break;
+                break;
             case '*':
                 this.total = a * b;
-            break;
-        } 
+                break;
+        }
     };
 }
