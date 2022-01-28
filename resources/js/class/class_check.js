@@ -5,9 +5,6 @@ export default class Check {
         //starts with mul or div?
         const bRegex = new RegExp('^[\*\/]');
 
-        //starts with mul or div?
-        const bAddRegex = new RegExp('^[\+]');
-
         //end with any of the operators?
         const eRegex = new RegExp('([\*\+\-\/])$');
 
@@ -24,10 +21,6 @@ export default class Check {
 
             if (bRegex.test(checking)) {
                 throw 'Du kan inte börja med multiplikation eller division.';
-            }
-
-            if (bAddRegex.test(checking)) {
-                throw 'Ditt första tal är redan positivt från början.';
             }
 
             if (eRegex.test(checking)) {

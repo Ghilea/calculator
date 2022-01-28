@@ -10,37 +10,47 @@ export default class Math extends Check {
     convMath(operation) {
         let split = operation.split(/(\+)|(\*)|(\/)|(\-)/g).filter(Boolean);
 
-        console.log(split);
+        //sub in beginning
+        if (split[0] == '-') {
+            let subValue = split[0] + split[1];
+            split.splice(0, 2);
+            split.unshift(subValue);
+        }
 
-        $.each(split, index => {
+        //add in beginning
+        if (split[0] == '+') {
+            split.splice(0, 1);
+        }
 
-            if (index < 3) {
-                if (index % 3) {
+        //if theres any mul in it
+        while ($.inArray('*', split) !== -1) {
+            let index = $.inArray('*', split);
+            let newValue = this.ev(split[index], split[index - 1], split[index + 1]);
 
-                    //if sub is in the beginning of our array
-                    if (split[0] == '-') {
-                        let subValue = split[0] + split[1];
-                        split.splice(0,2);
-                        split.unshift(subValue);
-                    }
+            split.splice(index - 1, 3);
+            split.splice(index - 1, 0, newValue.toString());
+        }
 
-                    let doMath = split.slice(0, 3);
-                    console.log('first: ' + doMath);
+        //if theres any div in it
+        while ($.inArray('/', split) !== -1) {
+            let index = $.inArray('/', split);
+            let newValue = this.ev(split[index], split[index - 1], split[index + 1]);
 
-                    this.ev(doMath[1], parseFloat(doMath[0]), parseFloat(doMath[2]))
-                    console.log('total :' + this.total);
-                }
-            } else {
-                if (index % 2) {
+            split.splice(index - 1, 3);
+            split.splice(index - 1, 0, newValue.toString());
+        }
 
-                    let doMath = split.slice(index, index + 2);
+        //calc it
+        while (split.length >= 3) {
+            let newValue = this.ev(split[1], parseFloat(split[0]), parseFloat(split[2]));
 
-                    this.ev(doMath[0], parseFloat(this.total), parseFloat(doMath[1]))
-                    console.log('else :' + this.total);
+            split.splice(0, 3);
+            split.splice(0, 0, newValue.toString());
 
-                }
+            if (split.length === 1) {
+                this.total = parseFloat(split[0]);
             }
-        });
+        }
 
         if (Number.isInteger(this.total)) {
             this.result = this.total;
@@ -52,19 +62,23 @@ export default class Math extends Check {
     };
 
     ev(check, a, b) {
+        let result;
+
         switch (check) {
             case '+':
-                this.total = a + b;
+                result = a + b;
                 break;
             case '-':
-                this.total = a - b;
+                result = a - b;
                 break;
             case '/':
-                this.total = a / b;
+                result = a / b;
                 break;
             case '*':
-                this.total = a * b;
+                result = a * b;
                 break;
         }
+
+        return result;
     };
 }
