@@ -83,15 +83,6 @@
                     margin: 0 1em 0 0;
                     padding: 0.2em;
                 }
-        
-                &:nth-child(odd) {
-                    --bg-color: 0 0% 20%;
-                    background-color: hsl(var(--bg-color));
-                }
-        
-                &:nth-child(even) {
-                    background-color: hsl(var(--bg-color));
-                }
             }
         }
     }
