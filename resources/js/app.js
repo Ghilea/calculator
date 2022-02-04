@@ -40,7 +40,7 @@ $(function () {
             if (keys[0] !== '' && e.key === keys[1]) {
                 e.preventDefault();
                 switch (e.key) {
-                    case 'Enter':
+                    case 'Enter' || '=':
                         btn.calculate();
                         break;
                     case 'c' || 'C':
