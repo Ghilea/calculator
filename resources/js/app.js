@@ -26,7 +26,9 @@ $(function () {
         ['#btnDiv', '/'],
         ['#btnDot', '.'],
         ['#eval', 'Enter'],
+        ['#eval', '='],
         ['.clear', 'c'],
+        ['.clear', 'C'],
         ['', 'Backspace'],
         ['', 'ArrowLeft'],
         ['', 'ArrowRight'],
@@ -40,12 +42,18 @@ $(function () {
             if (keys[0] !== '' && e.key === keys[1]) {
                 e.preventDefault();
                 switch (e.key) {
-                    case 'Enter' || '=':
+                    case 'Enter':
                         btn.calculate();
                         break;
-                    case 'c' || 'C':
+                    case '=':
+                        btn.calculate();
+                    break;
+                    case 'c':
                         btn.clear();
                         break;
+                    case 'C':
+                    btn.clear();
+                    break;
                     default:
                         btn.resetIt(keys[1]);
                         btn.calcBtn(keys[1]);
