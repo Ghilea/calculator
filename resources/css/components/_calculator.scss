@@ -34,7 +34,7 @@
             box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
             font-size: var(--fs-s);
             color: var(--color);
-            padding:  0 0.5em 1em 0.5em; 
+            padding: 0 0.5em 1em 0.5em;
         }
 
         .clear {
@@ -69,15 +69,15 @@
             left: 50%;
             top: 50%;
             transform: translateX(calc(-50% + 2.1em)) translateY(calc(-50% + 1em));
-        
+
             h2 {
                 font-size: 1rem;
                 margin-bottom: 0;
             }
-        
+
             p {
                 margin: 0;
-        
+
                 span {
                     font-size: var(--fs-b);
                     margin: 0 1em 0 0;
@@ -96,7 +96,7 @@
         margin: 0 0 0 0.6em;
 
         input {
-            &:nth-child(1n+1){
+            &:nth-child(1n+1) {
                 display: flex;
                 cursor: pointer;
                 align-items: center;

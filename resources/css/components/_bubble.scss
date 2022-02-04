@@ -14,10 +14,10 @@
         position: absolute;
         background-color: hsl(var(--white), 0.2);
         top: -10em;
-        display:flex;
+        display: flex;
         align-items: center;
         justify-content: center;
-        
+
         $operator: 'x', '/', '+', '*';
 
         @for $var from 0 to 11 {
@@ -25,13 +25,13 @@
             $size: random(5);
             $nth: nth($operator, $operatorKey);
 
-            &:nth-child(#{$var}){
+            &:nth-child(#{$var}) {
                 left: random(99)+vw;
                 width: $size+1em;
                 height: $size+1em;
                 transform: translateZ(random(8)+em) rotateY(random(8)+deg);
                 animation-delay: random(10)+s;
-                
+
                 &:before {
                     content: $nth;
                     color: hsl(var(--white));
@@ -45,9 +45,9 @@
                 transform: translateY(100vh+30vh) rotateZ(360deg) rotateX(360deg) rotateY(360deg);
                 opacity: 0;
             }
-        
+
         }
-        
+
     }
 
 }
