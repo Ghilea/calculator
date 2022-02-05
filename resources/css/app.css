@@ -118,8 +118,8 @@ main {
   z-index: -1;
 }
 .bubbles span {
-  -webkit-animation: bubbles 25s ease-in-out infinite;
-          animation: bubbles 25s ease-in-out infinite;
+  -webkit-animation: bubbles 23s ease-in-out infinite;
+          animation: bubbles 23s ease-in-out infinite;
   transform-style: preserve-3d;
   box-shadow: var(--b-shadow);
   position: absolute;
@@ -130,25 +130,25 @@ main {
   justify-content: center;
 }
 .bubbles span:nth-child(0) {
-  left: 69vw;
+  left: 95vw;
   width: 5em;
   height: 5em;
-  transform: translateZ(6em) rotateY(7deg);
-  -webkit-animation-delay: 7s;
-          animation-delay: 7s;
+  transform: translateZ(8em) rotateY(5deg);
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 .bubbles span:nth-child(0):before {
-  content: "*";
+  content: "/";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(1) {
-  left: 41vw;
+  left: 83vw;
   width: 6em;
   height: 6em;
-  transform: translateZ(2em) rotateY(5deg);
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  transform: translateZ(1em) rotateY(6deg);
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
 }
 .bubbles span:nth-child(1):before {
   content: "+";
@@ -156,36 +156,36 @@ main {
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(2) {
-  left: 20vw;
-  width: 6em;
-  height: 6em;
-  transform: translateZ(6em) rotateY(1deg);
-  -webkit-animation-delay: 6s;
-          animation-delay: 6s;
+  left: 36vw;
+  width: 5em;
+  height: 5em;
+  transform: translateZ(3em) rotateY(6deg);
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
 }
 .bubbles span:nth-child(2):before {
-  content: "+";
+  content: "x";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(3) {
-  left: 73vw;
-  width: 3em;
-  height: 3em;
-  transform: translateZ(3em) rotateY(5deg);
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
+  left: 44vw;
+  width: 6em;
+  height: 6em;
+  transform: translateZ(7em) rotateY(8deg);
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
 }
 .bubbles span:nth-child(3):before {
-  content: "*";
+  content: "x";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(4) {
-  left: 62vw;
-  width: 4em;
-  height: 4em;
-  transform: translateZ(6em) rotateY(2deg);
+  left: 41vw;
+  width: 3em;
+  height: 3em;
+  transform: translateZ(5em) rotateY(6deg);
   -webkit-animation-delay: 3s;
           animation-delay: 3s;
 }
@@ -195,77 +195,77 @@ main {
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(5) {
-  left: 68vw;
-  width: 2em;
-  height: 2em;
-  transform: translateZ(4em) rotateY(1deg);
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s;
+  left: 70vw;
+  width: 3em;
+  height: 3em;
+  transform: translateZ(3em) rotateY(5deg);
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 .bubbles span:nth-child(5):before {
-  content: "*";
+  content: "+";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(6) {
-  left: 57vw;
-  width: 5em;
-  height: 5em;
-  transform: translateZ(7em) rotateY(7deg);
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  left: 51vw;
+  width: 4em;
+  height: 4em;
+  transform: translateZ(6em) rotateY(7deg);
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 .bubbles span:nth-child(6):before {
-  content: "*";
+  content: "x";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(7) {
-  left: 16vw;
-  width: 3em;
-  height: 3em;
-  transform: translateZ(4em) rotateY(7deg);
+  left: 88vw;
+  width: 6em;
+  height: 6em;
+  transform: translateZ(5em) rotateY(3deg);
   -webkit-animation-delay: 7s;
           animation-delay: 7s;
 }
 .bubbles span:nth-child(7):before {
-  content: "+";
+  content: "/";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(8) {
-  left: 4vw;
+  left: 3vw;
   width: 4em;
   height: 4em;
-  transform: translateZ(7em) rotateY(8deg);
+  transform: translateZ(8em) rotateY(8deg);
   -webkit-animation-delay: 3s;
           animation-delay: 3s;
 }
 .bubbles span:nth-child(8):before {
-  content: "+";
+  content: "*";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(9) {
-  left: 5vw;
-  width: 4em;
-  height: 4em;
-  transform: translateZ(6em) rotateY(3deg);
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  left: 30vw;
+  width: 2em;
+  height: 2em;
+  transform: translateZ(1em) rotateY(2deg);
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 .bubbles span:nth-child(9):before {
-  content: "/";
+  content: "*";
   color: hsl(var(--white));
   font-size: 1.5rem;
 }
 .bubbles span:nth-child(10) {
   left: 62vw;
-  width: 6em;
-  height: 6em;
-  transform: translateZ(1em) rotateY(4deg);
-  -webkit-animation-delay: 6s;
-          animation-delay: 6s;
+  width: 2em;
+  height: 2em;
+  transform: translateZ(5em) rotateY(8deg);
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
 }
 .bubbles span:nth-child(10):before {
   content: "+";
@@ -365,13 +365,6 @@ main {
   font-size: var(--fs-b);
   margin: 0 1em 0 0;
   padding: 0.2em;
-}
-#calculator .top #outputMessage p:nth-child(odd) {
-  --bg-color: 0 0% 20%;
-  background-color: hsl(var(--bg-color));
-}
-#calculator .top #outputMessage p:nth-child(even) {
-  background-color: hsl(var(--bg-color));
 }
 #calculator .keys {
   display: flex;
