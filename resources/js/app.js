@@ -1,7 +1,9 @@
 import Btn from './class/class_btn.js';
+let btn = new Btn();
 
 $(function () {
 
+    //background design
     $('<div>', {
         class: 'bubbles',
     }).appendTo('main');
@@ -9,6 +11,37 @@ $(function () {
         $('<span>').appendTo('.bubbles');
     }
 
+    //keyboard
+    $(document).bind('keypress', (e) => {
+        $('#calcValue').focus();
+        switch (e.key.toLowerCase()) {
+            case 'enter':
+                e.preventDefault();
+                btn.calculate();
+                break;
+            case 'c':
+                e.preventDefault();
+                btn.clear();
+                break;
+            default:
+                if (btn.reset && e.key >= '0' && e.key <= '9') {
+                    btn.clear();
+                }
+
+                btn.reset = false;
+
+                return (
+                    (e.key >= '0' && e.key <= '9') ||
+                    e.key === '+' ||
+                    e.key === '-' ||
+                    e.key === '*' ||
+                    e.key === '/' ||
+                    e.key === '.'
+                )
+        }
+    })
+
+    //buttons
     const arrayButtons = [
         ['#btn0', '0'],
         ['#btn1', '1'],
@@ -26,58 +59,29 @@ $(function () {
         ['#btnDiv', '/'],
         ['#btnDot', '.'],
         ['#eval', 'Enter'],
-        ['.clear', 'c'],
-        ['', 'Backspace'],
-        ['', 'ArrowLeft'],
-        ['', 'ArrowRight'],
-        ['', 'Delete'],
+        ['#btnClear', 'c']
     ];
 
-    let btn = new Btn();
-
     $.each(arrayButtons, (index, keys) => {
-        $(document).bind('keypress', (e) => {
-            if (keys[0] !== '' && e.key === keys[1]) {
-                e.preventDefault();
-                switch (e.key) {
-                    case 'Enter':
-                        btn.calculate();
-                        break;
-                    case 'c' || 'C':
+        $(keys[0]).bind('click', () => {
+            switch (keys[0]) {
+                case '#eval':
+                    btn.calculate();
+                    break;
+                case '#btnClear':
+                    btn.clear();
+                    break;
+                default:
+                    if (btn.reset && keys[1] >= '0' && keys[1] <= '9') {
                         btn.clear();
-                        break;
-                    default:
-                        btn.resetIt(keys[1]);
-                        btn.calcBtn(keys[1]);
-                        break;
+                    }
 
-                }
-            } else {
-                return (
-                    e.key === 'Backspace' ||
-                    e.key === 'ArrowLeft' ||
-                    e.key === 'ArrowRight' ||
-                    e.key === 'Delete'
-                );
+                    btn.reset = false;
+
+                    btn.outputBtnValue(keys[1]);
+                    break;
             }
         })
 
-        if (keys[0] !== '') {
-            $(keys[0]).bind('click', () => {
-
-                switch (keys[0]) {
-                    case '#eval':
-                        btn.calculate();
-                        break;
-                    case '.clear':
-                        btn.clear();
-                        break;
-                    default:
-                        btn.resetIt(keys[1]);
-                        btn.calcBtn(keys[1]);
-                        break;
-                }
-            })
-        }
     });
 });

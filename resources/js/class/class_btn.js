@@ -4,10 +4,10 @@ export default class Btn extends Math {
     constructor() {
         super();
         this.reset = false;
-        this.screen = $('.screen');
+        this.screen = $('#calcValue');
     }
 
-    calcBtn(value) {
+    outputBtnValue(value) {
         this.screen.focus();
         this.screen.val(this.screen.val() + value);
     }
@@ -17,7 +17,6 @@ export default class Btn extends Math {
             return;
         }
 
-        this.screen.focus();
         //checking input field
         if (this.input(this.screen.val())) {
             return;
@@ -36,16 +35,6 @@ export default class Btn extends Math {
     clear() {
         this.screen.val('');
         $('#outputMessage').html('');
-    }
-
-    resetIt(btn) {
-
-        if (this.reset) {
-            const num = new RegExp('[0-9]');
-            if (num.test(parseInt(btn))) {
-                this.clear();
-            }
-            this.reset = false;
-        }
+        Math.result = '';
     }
 }

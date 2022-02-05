@@ -38,7 +38,7 @@ export default class Check {
 
             setTimeout(function () {
                 elm.fadeOut();
-            }, 1500);
+            }, 1200);
 
             return error;
         }

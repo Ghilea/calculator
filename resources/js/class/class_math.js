@@ -22,6 +22,7 @@ export default class Math extends Check {
             split.splice(0, 1);
         }
 
+        console.log(split)
         //if theres any mul in it
         while ($.inArray('*', split) !== -1) {
             let index = $.inArray('*', split);
@@ -29,15 +30,25 @@ export default class Math extends Check {
 
             split.splice(index - 1, 3);
             split.splice(index - 1, 0, newValue.toString());
+
+            if (split.length === 1) {
+                this.total = parseFloat(split[0]);
+            }
         }
 
         //if theres any div in it
         while ($.inArray('/', split) !== -1) {
             let index = $.inArray('/', split);
+
+            console.log(index)
             let newValue = this.ev(split[index], split[index - 1], split[index + 1]);
 
             split.splice(index - 1, 3);
             split.splice(index - 1, 0, newValue.toString());
+
+            if (split.length === 1) {
+                this.total = parseFloat(split[0]);
+            }
         }
 
         //calc it
