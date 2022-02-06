@@ -23,6 +23,10 @@ $(function () {
                 e.preventDefault();
                 btn.clear();
                 break;
+            case '=':
+                e.preventDefault();
+                btn.calculate();
+                break;
             default:
                 if (btn.reset && e.key >= '0' && e.key <= '9') {
                     btn.clear();
