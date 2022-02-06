@@ -62,8 +62,8 @@ $(function () {
         ['#btnMul', '*'],
         ['#btnDiv', '/'],
         ['#btnDot', '.'],
-        ['#eval', 'Enter'],
-        ['#btnClear', 'c']
+        ['#eval', ''],
+        ['#btnClear', '']
     ];
 
     $.each(arrayButtons, (index, keys) => {

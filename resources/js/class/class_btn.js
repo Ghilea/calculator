@@ -5,6 +5,7 @@ export default class Btn extends Math {
         super();
         this.reset = false;
         this.screen = $('#calcValue');
+        this.outputMessage = $('#outputMessage');
     }
 
     outputBtnValue(value) {
@@ -17,14 +18,13 @@ export default class Btn extends Math {
             return;
         }
 
-        //checking input field
         if (this.input(this.screen.val())) {
             return;
         }
 
         let result = this.convMath(this.screen.val());
 
-        $('#outputMessage').html('<p>' + this.screen.val() + '=' + result + '</p>');
+        this.outputMessage.html('<p>' + this.screen.val() + ' = ' + result + '</p>');
 
         this.screen.val(result);
         this.reset = true;
@@ -34,7 +34,7 @@ export default class Btn extends Math {
 
     clear() {
         this.screen.val('');
-        $('#outputMessage').html('');
+        this.outputMessage.html('');
         Math.result = '';
     }
 }
